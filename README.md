@@ -46,7 +46,7 @@ Configure file watchers, exclusions, and preferences from the dashboard. The Act
 
 ## Known issues
 
-- **Burst console error** (`Failed to find entry-points ... BadImageFormatException: Read out of bounds` on `0Harmony.dll`): a bug in Burst's bundled metadata reader parsing Harmony's assembly (still present in Burst 1.8.24). Hot reload is unaffected - it is editor-side console noise only. Swapping the Harmony DLL does not help, since all target-framework builds of a given Harmony version share the same metadata.
+- **Burst compatibility**: the package's Harmony DLL metadata is normalized with Mono.Cecil. Unity 2022.3 with Burst 1.8.29 can hash this DLL without `BadImageFormatException`. Import-disabled Roslyn filename aliases also let Burst resolve the package's editor assembly references. The reproduction and scope are documented in `Assets/Documentation~/BurstCompatibility.md`.
 
 ## License
 
